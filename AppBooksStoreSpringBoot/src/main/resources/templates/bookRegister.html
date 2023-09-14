@@ -56,69 +56,44 @@
         </div>
     </div>
 </nav>
-<div>
-    <h1 class="text-center">WELCOME TO NEW BOOK STORE!</h1>
-    <hr/>
-    <h5>
-        <p>
-            Books have been a part of our daily lives since ancient times. They have been used for telling stories,
-            archiving history, and sharing information about our world. Although the ways that books are made have
-            evolved over time, whether handwritten, printed on pages, or digitized online, their need remains timeless.
-            Take a read through this brief history of books...
-        </p>
-    </h5>
-    <hr/>
-    <div class="container text-center my-3">
-        <img style="text-align: center;" src="/images/bg.jpg" height="400">
-
+<div class="container my-3">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title" style="font-weight: bold;">New Book Register.</h2>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        <div class="form-group mb-2">
+                            <label for="txtName" class="col-sm-2 col-form-label">Name:</label>
+                            <input type="text" class="form-control" id="txtName" name="txtName"
+                                   placeholder="Enter Name....." required>
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="txtAuthor" class="col-sm-2 col-form-label">Author:</label>
+                            <input type="text" class="form-control" id="txtAuthor" name="txtAuthor"
+                                   placeholder="Enter Author....." required>
+                        </div>
+                        <div class="form-group  mb-2">
+                            <label for="txtPrice" class="col-sm-2 col-form-label">Price:</label>
+                            <input type="number" class="form-control" id="txtPrice" name="txtPrice"
+                                   placeholder="Enter Price....." required>
+                        </div>
+                        <div class="form-group  mb-2">
+                            <label for="txtPhoto" class="col-sm-2 col-form-label">Cover Photo:</label>
+                            <input type="file" class="form-control btn-primary" id="txtPhoto" name="txtPhoto" required>
+                        </div>
+                        <hr/>
+                        <div class="form-group">
+                            <button type="submit" name="btnSave" class="btn btn-primary">Save!</button>
+                            <a href="/" type="button" name="btnCancel" class="btn btn-warning">Cancel!</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    <!--    <div class="card">-->
-    <!--        <div class="card-header m-0 p-2">-->
-    <!--            <div class="row m-0  p-0">-->
-    <!--                <div class="col-4">-->
-    <!--                    <h2 class="card-title">Books List:</h2>-->
-    <!--                </div>-->
-    <!--                <div class="col-8 text-end">-->
-    <!--                    <a href="/" class="btn btn-primary"><i class="fa-solid fa-user-plus"></i> New-->
-    <!--                        Book</a>-->
-    <!--                </div>-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--        <div class="card-body">-->
-    <!--            <table id="myTable" class="table table-bordered table-striped table-hover">-->
-    <!--                <thead>-->
-    <!--                <tr>-->
-    <!--                    <th>Name</th>-->
-    <!--                    <th>Last Name</th>-->
-    <!--                    <th>Email</th>-->
-    <!--                    <th>Actions</th>-->
-    <!--                </tr>-->
-    <!--                </thead>-->
-    <!--                <tbody>-->
-    <!--                <tr class="table-primary">-->
-    <!--                    <td></td>-->
-    <!--                    <td></td>-->
-    <!--                    <th></th>-->
-    <!--                    <td>-->
-    <!--                        <a  type="button" class="btn btn-info"><i class="fa-solid fa-file-pen"></i> Edit</a>-->
-    <!--                        <a  type="button" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i> Delete-->
-    <!--                        </a>-->
-    <!--                    </td>-->
-    <!--                </tr>-->
-    <!--                </tr>-->
-    <!--                </tbody>-->
-    <!--                <tfoot>-->
-    <!--                <tr>-->
-    <!--                    <th>Name</th>-->
-    <!--                    <th>Last Name</th>-->
-    <!--                    <th>Email</th>-->
-    <!--                    <th>Actions</th>-->
-    <!--                </tr>-->
-    <!--                </tfoot>-->
-    <!--            </table>-->
-
-    <!--        </div>-->
-    <!--    </div>-->
 </div>
 
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>

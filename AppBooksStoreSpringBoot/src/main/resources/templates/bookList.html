@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Book Store</title>
+    <title>Books List</title>
     <link href="https://bootswatch.com/5/cyborg/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css"/>
     <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet">
@@ -33,7 +33,7 @@
                     <a class="nav-link active" href="/availableBooks">Available Books</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="/">My Books</a>
+                    <a class="nav-link active" href="/mybooks">My Books</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" href="/bookRegister">New Book Register</a>
@@ -53,7 +53,7 @@
                         <h3 class="card-title">Books List:</h3>
                     </div>
                     <div class="col-8 text-end">
-                        <a href="/bookRegister" class="btn btn-primary"><i class="fa-solid fa-user-plus"></i> New
+                        <a href="/bookRegister" class="btn btn-primary"><i class="fa-solid fa-plus"></i></i> New
                             Book</a>
                     </div>
                 </div>
@@ -80,6 +80,7 @@
 <!--                        <img th:src="@{'data:'+${foto.getMimeType()}+';base64,'+${foto.getFotoBase64()}}" class="card-img-top" alt="Foto enviada">-->
                         <td>
                             <a type="button" class="btn btn-info"><i class="fa-solid fa-file-pen"></i> Edit</a>
+                            <a type="button" th:href="@{/mybooks/{id}(id=${book.id})}" class="btn btn-light"><i class="fa-solid fa-plus"></i></i> Add to MyBook</a>
                             <a type="button" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i> Delete
                             </a>
                         </td>

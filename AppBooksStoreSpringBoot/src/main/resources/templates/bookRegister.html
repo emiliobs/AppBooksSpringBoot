@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Book Store</title>
+    <title>Regitser Book</title>
     <link href="https://bootswatch.com/5/cyborg/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css"/>
     <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet">
@@ -33,7 +33,7 @@
                     <a class="nav-link active" href="/availableBooks">Available Books</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="/">My Books</a>
+                    <a class="nav-link active" href="/mybooks">My Books</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" href="/bookRegister">New Book Register</a>
@@ -77,16 +77,16 @@
                         </div>
                         <div class="form-group  mb-2">
                             <label for="txtPrice" class="col-sm-2 col-form-label">Price:</label>
-                            <input type="number" class="form-control" id="txtPrice" name="price"
+                            <input type="number" class="form-control" id="txtPrice" style="width: 200px;" name="price"
                                    placeholder="Enter Price....." required>
                         </div>
                         <div class="form-group  mb-2">
                             <label for="txtPhoto" class="col-sm-2 col-form-label">Cover Photo:</label>
-                            <input type="file" class="form-control btn-primary" id="txtPhoto" name="photo" required>
+                            <input type="file" class="form-control btn-primary "  id="txtPhoto" name="photo" required>
                         </div>
                         <hr/>
                         <div class="form-group">
-                            <button type="submit" name="btnSave" class="btn btn-primary">Save!</button>
+                            <button type="submit" name="btnSave" class="btn btn-primary">Save!</button> |
                             <a href="/" type="button" name="btnCancel" class="btn btn-warning">Cancel!</a>
                         </div>
                     </form>

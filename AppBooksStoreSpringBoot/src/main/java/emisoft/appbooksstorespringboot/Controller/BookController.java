@@ -2,7 +2,10 @@ package emisoft.appbooksstorespringboot.Controller;
 
 
 import emisoft.appbooksstorespringboot.Entities.Book;
+import emisoft.appbooksstorespringboot.Entities.MyBookList;
 import emisoft.appbooksstorespringboot.Services.BookService;
+import emisoft.appbooksstorespringboot.Services.MyBookService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -14,11 +17,16 @@ import java.util.Base64;
 @Controller
 public class BookController
 {
+    @Autowired
     private final BookService bookService;
 
-    public BookController(BookService bookService)
+    @Autowired
+    private final MyBookService myBookService;
+
+    public BookController(BookService bookService, MyBookService myBookService)
     {
         this.bookService = bookService;
+        this.myBookService = myBookService;
     }
 
     @GetMapping("/")
@@ -31,7 +39,31 @@ public class BookController
     public  String BookRegister()
     {
 
-        return "bookRegister";
+        return "/bookRegister";
+    }
+
+    @GetMapping("/mybooks")
+    public  String GetMyBooksList(Model model)
+    {
+         model.addAttribute("myBooks", myBookService.GetAllMyBooks());
+
+        return "/mybooks";
+    }
+    @RequestMapping("/mybooks/{id}")
+    public  String GetMyBookList(@PathVariable("id") int id)
+    {
+        Book book = bookService.GetBookById(id);
+        MyBookList myBookList = new MyBookList();
+        myBookList.setId(book.getId());
+        myBookList.setAuthor(book.getAuthor());
+        myBookList.setName(book.getName());
+        myBookList.setMimeType(book.getMimeType());
+        myBookList.setPrice(book.getPrice());
+        myBookList.setPhoto(book.getFoto());
+
+        myBookService.SaveMyBook(myBookList);
+
+        return "/mybooks";
     }
 
     @GetMapping("/availableBooks")

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Book Store</title>
+    <title>My books</title>
     <link href="https://bootswatch.com/5/cyborg/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css"/>
     <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet">
@@ -45,23 +45,60 @@
         </div>
     </div>
 </nav>
-<div>
-    <h1 class="text-center">WELCOME TO NEW BOOK STORE!</h1>
-    <hr/>
-    <div class="container text-center my-3">
-        <img style="text-align: center;" src="/images/bg.jpg" height="400">
+<div class="container S my-3">
+    <div class="card">
+        <div class="card-header m-0 p-2">
+            <div class="row m-0  p-0">
+                <div class="col-4">
+                    <h3 class="card-title">My Books:</h3>
+                </div>
+                <div class="col-8 text-end">
+                    <a href="/bookRegister" class="btn btn-primary"><i class="fa-solid fa-plus"></i></i> New
+                        Book</a>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <table id="myTable" class="table table-bordered table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Author</th>
+                    <th>Photo</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="myBook : ${myBooks}" class="table-primary">
+                    <td th:text="${myBook.id}"></td>
+                    <td th:text="${myBook.name}"></td>
+                    <td th:text="${myBook.author}"></td>
+                    <td>
+                        <img th:src="@{'data:'+${myBook.getMimeType()}+';base64,'+${myBook.getPhoto()}}" alt="Sen Photo" height="80px">
+                    </td>
+                    <!--                        <img th:src="@{'data:'+${foto.getMimeType()}+';base64,'+${foto.getFotoBase64()}}" class="card-img-top" alt="Foto enviada">-->
+                    <td>
+<!--                        <a type="button" class="btn btn-info"><i class="fa-solid fa-file-pen"></i> Edit</a>-->
+                        <a type="button" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i> Delete
+                        </a>
+                    </td>
+                </tr>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Author</th>
+                    <th>Photo</th>
+                    <th>Actions</th>
+                </tr>
+                </tfoot>
+            </table>
 
+        </div>
     </div>
-    <h5>
-        <p>
-            Books have been a part of our daily lives since ancient times. They have been used for telling stories,
-            archiving history, and sharing information about our world. Although the ways that books are made have
-            evolved over time, whether handwritten, printed on pages, or digitized online, their need remains timeless.
-            Take a read through this brief history of books...
-        </p>
-    </h5>
-    <hr/>
-
 </div>
 
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
@@ -80,6 +117,6 @@
 
     });
     var table = $('#myTable').DataTable({});
-    table.page.len(7).draw();
+    table.page.len(4).draw();
 
 </script>

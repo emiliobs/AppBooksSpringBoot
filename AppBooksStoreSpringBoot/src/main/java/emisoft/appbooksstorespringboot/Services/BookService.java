@@ -27,4 +27,9 @@ public class BookService
     {
         return  bookRepository.findAll();
     }
+
+    public Book GetBookById(int id)
+    {
+        return  bookRepository.findById(id).get();
+    }
 }

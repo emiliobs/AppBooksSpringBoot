@@ -24,6 +24,12 @@ public class Book
     {
     }
 
+    public Book(String mimeType, String foto)
+    {
+        this.mimeType = mimeType;
+        this.foto = foto;
+    }
+
     public Book(int id, String name, String author, String price, String mimeType, String foto)
     {
         this.id = id;

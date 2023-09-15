@@ -64,25 +64,25 @@
                     <h2 class="card-title" style="font-weight: bold;">New Book Register.</h2>
                 </div>
                 <div class="card-body">
-                    <form method="post">
+                    <form th:action="@{/save}" method="post" enctype="multipart/form-data">
                         <div class="form-group mb-2">
                             <label for="txtName" class="col-sm-2 col-form-label">Name:</label>
-                            <input type="text" class="form-control" id="txtName" name="txtName"
+                            <input type="text" class="form-control" id="txtName" name="name"
                                    placeholder="Enter Name....." required>
                         </div>
                         <div class="form-group mb-2">
                             <label for="txtAuthor" class="col-sm-2 col-form-label">Author:</label>
-                            <input type="text" class="form-control" id="txtAuthor" name="txtAuthor"
+                            <input type="text" class="form-control" id="txtAutho" name="author"
                                    placeholder="Enter Author....." required>
                         </div>
                         <div class="form-group  mb-2">
                             <label for="txtPrice" class="col-sm-2 col-form-label">Price:</label>
-                            <input type="number" class="form-control" id="txtPrice" name="txtPrice"
+                            <input type="number" class="form-control" id="txtPrice" name="price"
                                    placeholder="Enter Price....." required>
                         </div>
                         <div class="form-group  mb-2">
                             <label for="txtPhoto" class="col-sm-2 col-form-label">Cover Photo:</label>
-                            <input type="file" class="form-control btn-primary" id="txtPhoto" name="txtPhoto" required>
+                            <input type="file" class="form-control btn-primary" id="txtPhoto" name="photo" required>
                         </div>
                         <hr/>
                         <div class="form-group">
@@ -115,3 +115,4 @@
     table.page.len(7).draw();
 
 </script>
+<!--LONGTEXT-->

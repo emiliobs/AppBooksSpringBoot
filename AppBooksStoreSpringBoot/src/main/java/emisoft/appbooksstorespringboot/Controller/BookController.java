@@ -1,8 +1,10 @@
 package emisoft.appbooksstorespringboot.Controller;
 
+
 import emisoft.appbooksstorespringboot.Entities.Book;
 import emisoft.appbooksstorespringboot.Services.BookService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -33,8 +35,11 @@ public class BookController
     }
 
     @GetMapping("/availableBooks")
-    public  String GetAllBooks()
+    public  String GetAllBooks(Model model)
     {
+        model.addAttribute("books", bookService.GetAllBooks());
+
+
         return "/bookList";
     }
 

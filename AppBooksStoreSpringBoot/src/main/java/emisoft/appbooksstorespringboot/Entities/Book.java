@@ -16,6 +16,7 @@ public class Book
   private  String author;
   private  String price;
 
+
   String mimeType;
   @Lob
   private String  foto;

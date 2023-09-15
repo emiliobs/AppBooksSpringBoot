@@ -50,7 +50,7 @@
             <div class="card-header m-0 p-2">
                 <div class="row m-0  p-0">
                     <div class="col-4">
-                        <h2 class="card-title">Books List:</h2>
+                        <h3 class="card-title">Books List:</h3>
                     </div>
                     <div class="col-8 text-end">
                         <a href="/bookRegister" class="btn btn-primary"><i class="fa-solid fa-user-plus"></i> New
@@ -70,11 +70,14 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr class="table-primary">
-                        <td>55555</td>
-                        <td>Emilio</td>
-                        <td>All for love</td>
-                        <td>Emilio.png</td>
+                    <tr th:each="book : ${books}" class="table-primary">
+                        <td th:text="${book.id}"></td>
+                        <td th:text="${book.name}"></td>
+                        <td th:text="${book.author}"></td>
+                        <td>
+                            <img th:src="@{'data:'+${book.getMimeType()}+';base64,'+${book.getFoto()}}" alt="Sen Photo" height="80px">
+                        </td>
+<!--                        <img th:src="@{'data:'+${foto.getMimeType()}+';base64,'+${foto.getFotoBase64()}}" class="card-img-top" alt="Foto enviada">-->
                         <td>
                             <a type="button" class="btn btn-info"><i class="fa-solid fa-file-pen"></i> Edit</a>
                             <a type="button" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i> Delete
@@ -114,6 +117,6 @@
 
     });
     var table = $('#myTable').DataTable({});
-    table.page.len(7).draw();
+    table.page.len(4).draw();
 
 </script>

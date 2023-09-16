@@ -87,6 +87,25 @@ public class BookController
         return "redirect:/availableBooks";
     }
 
+    @RequestMapping("/editBook/{id}")
+    public String EditBook(@PathVariable("id") int id, Model model)
+    {
+        Book findBook = bookService.GetBookById(id);
+
+        if (findBook != null)
+        {
+            model.addAttribute("book", findBook);
+
+            return "/bookEdit";
+        }
+        else
+        {
+            return "redirect:/availableBooks";
+
+        }
+
+    }
+
 
 }
 

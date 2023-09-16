@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Regitser Book</title>
+    <title>Edit Book</title>
     <link href="https://bootswatch.com/5/cyborg/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css"/>
     <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet">
@@ -45,42 +45,47 @@
         </div>
     </div>
 </nav>
-<div class="container my-3">
-    <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center">
-            <div class="card">
-                <div class="card-header">
-                    <h2 class="card-title" style="font-weight: bold;">New Book Register.</h2>
-                </div>
-                <div class="card-body">
-                    <form th:action="@{/save}" method="post" enctype="multipart/form-data">
-                        <div class="form-group mb-2">
-                            <label for="txtName" class="col-sm-2 col-form-label">Name:</label>
-                            <input type="text" class="form-control" id="txtName" name="name"
-                                   placeholder="Enter Name....." required>
-                        </div>
-                        <div class="form-group mb-2">
-                            <label for="txtAuthor" class="col-sm-2 col-form-label">Author:</label>
-                            <input type="text" class="form-control" id="txtAuthor" name="author"
-                                   placeholder="Enter Author....." required>
-                        </div>
-                        <div class="form-group  mb-2">
-                            <label for="txtPrice" class="col-sm-2 col-form-label">Price:</label>
-                            <input type="number" class="form-control" id="txtPrice" style="width: 200px;" name="price"
-                                   placeholder="Enter Price....." required>
-                        </div>
-                        <div class="form-group  mb-2">
-                            <label for="txtPhoto" class="col-sm-2 col-form-label">Cover Photo:</label>
-                            <input type="file" class="form-control btn-primary "  id="txtPhoto" name="photo" required>
-                        </div>
-                        <hr/>
-                        <div class="form-group text-end">
-                            <button type="submit" name="btnSave" class="btn btn-primary">Save!</button> |
-                            <a href="/availableBooks" type="button" name="btnCancel" class="btn btn-warning">Cancel!</a>
-                        </div>
-                    </form>
+<div class="container my-5">
+    <div class="row" style="margin-left: 170px;">
+       <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title" style="font-weight: bold;">Edit Book.</h2>
+                    </div>
+                    <div class="card-body">
+                        <form th:action="@{/editBook/{id}}"  method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="id" th:value="${book.id}">
+                            <div class="form-group mb-2">
+                                <label for="txtName" class="col-sm-2 col-form-label">Name:</label>
+                                <input type="text" class="form-control" id="txtName" name="name" th:value="${book.name}"
+                                       required>
+                            </div>
+                            <div class="form-group mb-2">
+                                <label for="txtAuthor" class="col-sm-2 col-form-label">Author:</label>
+                                <input type="text" class="form-control" id="txtAuthor" name="author" th:value="${book.author}"
+                                       required>
+                            </div>
+                            <div class="form-group  mb-2">
+                                <label for="txtPrice" class="col-sm-2 col-form-label">Price:</label>
+                                <input type="number" class="form-control" id="txtPrice" style="width: 200px;" name="price"
+                                       th:value="${book.price}" required>
+                            </div>
+                            <div class="form-group  mb-2">
+                                <label for="txtPhoto" class="col-sm-2 col-form-label">Cover Photo:</label>
+                                <input type="file" class="form-control btn-primary "  id="txtPhoto" name="photo" th:value="${book.getFoto()}" required>
+                            </div>
+                            <hr/>
+                            <div class="form-group text-end">
+                                <button type="submit" name="btnSave" class="btn btn-primary">Save!</button> |
+                                <a href="/availableBooks" type="button" name="btnCancel" class="btn btn-warning">Cancel!</a>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
+        <div class="col-lg-6">
+            <img th:src="@{'data:'+${book.getMimeType()}+';base64,'+${book.foto}}" alt="Sen Photo" height="517px" style="border-radius: 20px;">
+<!--            <img src="../static/images/bg.jpg" height="517px" style="border-radius: 20px;"/>-->
         </div>
     </div>
 </div>

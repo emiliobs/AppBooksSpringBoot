@@ -46,15 +46,16 @@
     </div>
 </nav>
 <div class="container my-5">
-    <div class="row" style="margin-left: 170px;">
+    <div class="row" style="margin-left: 150px;">
        <div class="col-lg-6">
                 <div class="card">
                     <div class="card-header">
                         <h2 class="card-title" style="font-weight: bold;">Edit Book.</h2>
                     </div>
                     <div class="card-body">
-                        <form th:action="@{/editBook/{id}}"  method="post" enctype="multipart/form-data">
+                        <form th:action="@{/save}"  method="post" enctype="multipart/form-data" th:object="${book}">
                             <input type="hidden" name="id" th:value="${book.id}">
+
                             <div class="form-group mb-2">
                                 <label for="txtName" class="col-sm-2 col-form-label">Name:</label>
                                 <input type="text" class="form-control" id="txtName" name="name" th:value="${book.name}"
@@ -72,7 +73,7 @@
                             </div>
                             <div class="form-group  mb-2">
                                 <label for="txtPhoto" class="col-sm-2 col-form-label">Cover Photo:</label>
-                                <input type="file" class="form-control btn-primary "  id="txtPhoto" name="photo" th:value="${book.getFoto()}" required>
+                                <input type="file" class="form-control btn-primary "  id="txtPhoto" name="photo" th:value="${book.foto}" required>
                             </div>
                             <hr/>
                             <div class="form-group text-end">
@@ -84,7 +85,7 @@
                 </div>
             </div>
         <div class="col-lg-6">
-            <img th:src="@{'data:'+${book.getMimeType()}+';base64,'+${book.foto}}" alt="Sen Photo" height="517px" style="border-radius: 20px;">
+            <img th:src="@{'data:'+${book.getMimeType()}+';base64,'+${book.foto}}" alt="Sen Photo" height="500px" style="border-radius: 20px;">
 <!--            <img src="../static/images/bg.jpg" height="517px" style="border-radius: 20px;"/>-->
         </div>
     </div>

@@ -106,6 +106,25 @@ public class BookController
 
     }
 
+//    @PostMapping("/editBook/{id}")
+//    public String EditBookSave(@PathVariable("id") int id, @ModelAttribute Book book)
+//    {
+//        Book findBook = bookService.GetBookById(id);
+//        if (findBook != null)
+//        {
+//            //Update the fields with the new values in the db;
+//            findBook.setName(book.getName());
+//            findBook.setAuthor(book.getAuthor());
+//            findBook.setPrice(book.getPrice());
+//            findBook.setMimeType(book.getMimeType());
+//            findBook.setFoto(book.getFoto());
+//            findBook.setId(book.getId());
+//        }
+//
+//        return "redirect:/availableBooks";
+//    }
+
+
 
 }
 

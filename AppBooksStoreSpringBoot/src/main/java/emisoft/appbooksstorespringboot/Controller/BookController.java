@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.Base64;
+import java.util.List;
 
 @Controller
 public class BookController
@@ -42,14 +43,17 @@ public class BookController
         return "/bookRegister";
     }
 
-    @GetMapping("/mybooks")
+    @GetMapping("/mybookLis")
     public  String GetMyBooksList(Model model)
     {
-         model.addAttribute("myBooks", myBookService.GetAllMyBooks());
+//        model.addAttribute("myBooks", myBookService.GetAllMyBooks());
+        List<MyBookList> myBookLists = myBookService.GetAllMyBooks();
+        model.addAttribute("myBooks", myBookLists);
 
         return "/mybooks";
     }
-    @RequestMapping("/mybooks/{id}")
+
+    @RequestMapping("/mybookLis/{id}")
     public  String GetMyBookList(@PathVariable("id") int id)
     {
         Book book = bookService.GetBookById(id);
@@ -63,8 +67,10 @@ public class BookController
 
         myBookService.SaveMyBook(myBookList);
 
-        return "/mybooks";
+        return "redirect:/mybookLis";
     }
+
+
 
     @GetMapping("/availableBooks")
     public  String GetAllBooks(Model model)

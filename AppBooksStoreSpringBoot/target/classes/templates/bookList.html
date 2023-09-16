@@ -81,7 +81,7 @@
                         <td>
                             <a type="button" th:href="@{/mybookLis/{id}(id=${book.id})}" class="btn btn-light"><i class="fa-solid fa-plus"></i></i> Add to MyBook</a>
                             <a type="button" th:href="@{/editBook/{id}(id=${book.id})}" class="btn btn-info"><i class="fa-solid fa-file-pen"></i> Edit</a>
-                            <a type="button" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i> Delete
+                            <a type="button" th:href="@{/deleteBook/{id}(id=${book.id})}" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i> Delete
                             </a>
                         </td>
                     </tr>

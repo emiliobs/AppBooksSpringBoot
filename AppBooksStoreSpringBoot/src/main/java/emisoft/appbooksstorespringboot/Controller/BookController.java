@@ -112,6 +112,14 @@ public class BookController
 
     }
 
+    @GetMapping("deleteBook/{id}")
+    public String DeleteBook(@PathVariable("id") int id)
+    {
+        bookService.DeleteBook(id);
+
+        return "redirect:/availableBooks";
+    }
+
 //    @PostMapping("/editBook/{id}")
 //    public String EditBookSave(@PathVariable("id") int id, @ModelAttribute Book book)
 //    {

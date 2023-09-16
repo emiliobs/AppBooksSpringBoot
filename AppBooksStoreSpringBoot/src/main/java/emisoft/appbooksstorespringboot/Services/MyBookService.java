@@ -27,4 +27,9 @@ public class MyBookService
     {
         return myBookRepository.findAll();
     }
+
+    public  void DeleteMyBook(int id)
+    {
+        myBookRepository.deleteById(id);
+    }
 }

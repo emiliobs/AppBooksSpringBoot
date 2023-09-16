@@ -80,7 +80,7 @@
                     <!--                        <img th:src="@{'data:'+${foto.getMimeType()}+';base64,'+${foto.getFotoBase64()}}" class="card-img-top" alt="Foto enviada">-->
                     <td>
 <!--                        <a type="button" class="btn btn-info"><i class="fa-solid fa-file-pen"></i> Edit</a>-->
-                        <a type="button" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i> Delete
+                        <a type="button" th:href="@{/deleteMyBook/{id}(id=${myBook.id})}" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i> Delete
                         </a>
                     </td>
                 </tr>

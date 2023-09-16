@@ -10,4 +10,9 @@
 
 ![image](https://github.com/emiliobs/AppBooksSpringBoot/assets/3122465/f6d3c74c-ca4a-42ed-bd2c-dbc76bab105b)
 
+## Edit Book:
+
+![image](https://github.com/emiliobs/AppBooksSpringBoot/assets/3122465/78255ce5-9331-4174-ae4a-871492abb36c)
+
+
 

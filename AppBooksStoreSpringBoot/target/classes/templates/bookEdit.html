@@ -71,8 +71,8 @@
                                 <input type="number" class="form-control" id="txtPrice" style="width: 200px;" name="price"
                                        th:value="${book.price}" required>
                             </div>
-                            <div class="form-group  mb-2">
-                                <label for="txtPhoto" class="col-sm-2 col-form-label">Cover Photo:</label>
+                            <div class="form-group  mb-3">
+                                <label for="txtPhoto" class="col-sm-4 col-form-label">Cover Photo:</label>
                                 <input type="file" class="form-control btn-primary "  id="txtPhoto" name="photo" th:value="${book.foto}" required>
                             </div>
                             <hr/>
@@ -85,7 +85,10 @@
                 </div>
             </div>
         <div class="col-lg-6">
-            <img th:src="@{'data:'+${book.getMimeType()}+';base64,'+${book.foto}}" alt="Sen Photo" height="500px" style="border-radius: 20px;">
+            <div class="form-group  mb-2">
+                <label  class="col-sm-2 col-form-label">Cover Photo:</label><br/>
+                <img th:src="@{'data:'+${book.getMimeType()}+';base64,'+${book.foto}}" alt="Sen Photo" height="460px" style="border-radius: 20px;">
+            </div>
 <!--            <img src="../static/images/bg.jpg" height="517px" style="border-radius: 20px;"/>-->
         </div>
     </div>
